@@ -1,0 +1,118 @@
+:root{
+  --ot-bg: rgba(10,14,22,0.6);
+  --ot-border: rgba(255,255,255,0.08);
+  --ot-text: #e9eef7;
+  --ot-muted: #9aa7bd;
+  --ot-accent: #ff6000;
+}
+
+.ot-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: var(--ot-bg);
+  border-bottom: 1px solid var(--ot-border);
+}
+
+.ot-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ot-brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ot-text);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+.ot-brand img{
+  height: 28px;
+  width: 28px;
+  object-fit: contain;
+}
+
+.ot-burger{
+  display: none;
+  height: 36px;
+  width: 42px;
+  padding: 8px;
+  gap: 4px;
+  border: 1px solid var(--ot-border);
+  border-radius: 10px;
+  background: transparent;
+}
+.ot-burger span{
+  display: block;
+  height: 2px;
+  background: var(--ot-text);
+  border-radius: 1px;
+}
+.ot-burger.is-open span:nth-child(2){ opacity: 0; }
+.ot-burger.is-open span:nth-child(1){ transform: translateY(6px) rotate(45deg); }
+.ot-burger.is-open span:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
+
+.ot-nav{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.ot-nav ul{
+  display: flex;
+  list-style: none;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+.ot-nav a{
+  color: var(--ot-text);
+  text-decoration: none;
+  font-size: 14.5px;
+}
+.ot-nav ul a{
+  color: var(--ot-muted);
+}
+.ot-nav ul a:hover{
+  color: var(--ot-text);
+}
+.ot-cta{
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--ot-border);
+  background: linear-gradient(180deg, rgba(255,96,0,.12), rgba(255,96,0,.08));
+  color: var(--ot-text);
+}
+.ot-cta:hover{
+  box-shadow: 0 0 0 3px rgba(255,96,0,.12) inset;
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .ot-burger{ display: inline-flex; flex-direction: column; }
+  .ot-nav{
+    position: absolute;
+    top: 60px;
+    right: 12px;
+    left: 12px;
+    flex-direction: column;
+    padding: 14px;
+    background: rgba(14,18,28,.9);
+    border: 1px solid var(--ot-border);
+    border-radius: 14px;
+    display: none;
+  }
+  .ot-nav.is-open{ display: flex; }
+  .ot-nav ul{
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .ot-cta{ width: 100%; text-align: center; }
+}
